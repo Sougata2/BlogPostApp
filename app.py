@@ -13,6 +13,10 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(basedir, 'blog.sqlite')
+# mysql
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sougata@localhost/users'
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secret_key'
 db = SQLAlchemy(app)
@@ -44,8 +48,8 @@ class NamerForm(FlaskForm):
 
 
 class AddUser(FlaskForm):
-    name = StringField('Name', validators=[DataRequired("Your name")])
-    email = StringField("Email", validators=[DataRequired('Your Email')])
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField("Email", validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
@@ -85,10 +89,9 @@ def add_user():
 
     return render_template("add.html", form=form, our_users=our_users)
 
+
 # create custom Error pages
 # invalid Url
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
