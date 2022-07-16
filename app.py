@@ -14,7 +14,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(basedir, 'blog.sqlite')
 # mysql
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sougata@localhost/users'
+# app.config['SQLALCHEMY_DATABASE_URI'] =
+#'mysql+pymysql://root:sougata@localhost/users'
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
