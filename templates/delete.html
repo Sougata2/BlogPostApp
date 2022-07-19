@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Delete User</h1>
+<br>
+<br>
+{% for category, message in get_flashed_messages(with_categories=true) %}
+{% if category %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% else %}
+<div class="alert alert-darger alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+{% endfor %}
+
+<button type="button" name="button" class="show-user-btn btn btn-outline-success">Show Users</button>
+<table class="user-list hidden table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for our_user in our_users %}
+    <tr>
+      <th scope="row"> <a href="{{ url_for('update', id=our_user.id) }}">{{ our_user.id }}</a></th>
+      <td>{{ our_user.name }}</td>
+      <td>{{ our_user.email }}</td>
+      <td>{{ our_user.phone }}</td>
+      <td><a href="{{ url_for('delete', id=our_user.id ) }}"> 🗑️ </a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

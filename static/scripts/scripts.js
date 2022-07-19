@@ -4,4 +4,7 @@ const userList = document.querySelector('.user-list')
 const showUser = function(){
   userList.classList.toggle('hidden')
 }
-showUsersbtn.addEventListener("click",showUser)
+
+if (showUsersbtn){
+  showUsersbtn.addEventListener("click",showUser)
+}
