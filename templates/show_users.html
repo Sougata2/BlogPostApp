@@ -15,11 +15,12 @@
   <tbody>
     {% for user in users %}
     <tr>
-      <th scope="row"> <a href="{{ url_for('update', id=user.id) }}">{{ user.id }}</a></th>
+      <th scope="row"> <a href="{{ url_for('update', id=user.id) }}"><i class="fa-solid fa-pen"></i></a>
+      </th>
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.phone }}</td>
-      <td><a href="{{ url_for('delete', id=user.id ) }}">❌</a></td>
+      <td><a href="{{ url_for('delete', id=user.id ) }}"><i class="fa-solid fa-trash"></i></a></td>
     </tr>
     {% endfor %}
   </tbody>

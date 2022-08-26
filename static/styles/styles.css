@@ -1,6 +1,9 @@
-body{
+body {
   background-color: #e9ecef;
 }
-.hidden{
+.hidden {
   display: none;
+}
+.fa-trash {
+  color: black;
 }
